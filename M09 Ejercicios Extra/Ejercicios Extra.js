@@ -6,7 +6,8 @@ function deObjetoAarray(objeto) {
   // Estos elementos debe ser cada par clave:valor del objeto recibido.
   // [EJEMPLO]: {D: 1, B: 2, C: 3} ---> [['D', 1], ['B', 2], ['C', 3]].
   // Tu código:
-  var arr = Object.keys(objeto).map(function (key) {return [String(key), objeto[key]];});
+  var arr = Object.entries(objeto);
+
   return arr;
 }
 
@@ -91,16 +92,12 @@ function sortArray(arrayOfStrings) {
   // de la longitud de cada string.
   // [EJEMPLO]: ["You", "are", "beautiful", "looking"]  ---> [“You", "are", "looking", "beautiful"]
   // Tu código:
-  return arrayOfStrings.sort(function compare(a, b) {
-   if (a.length < b.length ) {
-     return -1;
-   }
-   if (a.length > b.length) {
-     return 1;
-   }
-   return 0;
- });
+  var nuevoArray = arrayOfStrings.sort(function (a, b) {
+    return a.length - b.length
+  })
+  return nuevoArray;
 }
+
 
 function buscoInterseccion(array1, array2) {
   // Recibes dos arreglos de números.
